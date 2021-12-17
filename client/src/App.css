@@ -4,15 +4,16 @@
 
 html {
   background-color: #3e3e45;
+  padding:3rem;
 }
 
 .nav {
   height: 50px;
   width: 100%;
   background-color: #101010;
-  top: 0;
   display: flex;
-  position: sticky;
+  position: fixed;
+  top: 0;
   margin: auto;
 }
 

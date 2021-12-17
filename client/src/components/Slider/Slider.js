@@ -3,11 +3,11 @@ import { Range, getTrackBackground } from "react-range";
 
 const STEP = 0.1;
 const MIN = 0;
-const MAX = 100;
+const MAX = 1;
 
 class Slider extends React.Component {
   state = {
-    values: [50]
+    values: [0.5]
   };
   render() {
     return (
@@ -59,8 +59,8 @@ class Slider extends React.Component {
               {...props}
               style={{
                 ...props.style,
-                height: "42px",
-                width: "42px",
+                height: "30px",
+                width: "30px",
                 backgroundColor: "#000",
                 borderRadius: "50%",
                 display: "flex",
@@ -79,7 +79,7 @@ class Slider extends React.Component {
             </div>
           )}
         />
-        <output style={{ margin: "10px 1rem", color: "#fff" }} id="output">
+        <output style={{ margin: "10px 2rem", color: "#fff" }} id="output">
           {this.state.values[0].toFixed(1)}
         </output>
       </div>
