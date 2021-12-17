@@ -29,5 +29,4 @@ def save_i_keyframes(video_fn):
         print('No I-frames in '+video_fn)
 
 
-if __name__ == '__main__':
-    save_i_keyframes(filename)
+save_i_keyframes(filename)

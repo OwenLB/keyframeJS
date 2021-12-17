@@ -1,6 +1,6 @@
 import cv2
 
-cap = cv2.VideoCapture("/Users/jean-jose/Desktop/keyframeJS/server/ressource/super.mp4")
+cap = cv2.VideoCapture("server/ressource/super.mp4")
 
 i=0
 while(cap.isOpened()):
