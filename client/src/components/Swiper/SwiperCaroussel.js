@@ -7,31 +7,36 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination"
 
-import "./SwiperCaroussel.css";
-
-
 // import Swiper core and required modules
 import SwiperCore, {
   Pagination
 } from 'swiper';
 
+import "./SwiperCaroussel.css";
+var listOfImages =[];
+
+
 // install Swiper modules
 SwiperCore.use([Pagination]);
 
 export default class SwiperCaroussel extends Component {
+  importAll(r) {
+    return r.keys().map(r);
+  }
+  componentWillMount() {
+      listOfImages = this.importAll(require.context('/Users/owen/Documents/M1/Hackaton/keyframeJS/server/ressource/outpout/', false, /\.(png|jpe?g|svg)$/));
+  }
   render() {
     return (
       <div>
           <Swiper slidesPerView={3} spaceBetween={30} pagination={{"clickable": true}} className="mySwiper">
-            <SwiperSlide>Slide 1</SwiperSlide>
-            <SwiperSlide>Slide 2</SwiperSlide>
-            <SwiperSlide>Slide 3</SwiperSlide>
-            <SwiperSlide>Slide 4</SwiperSlide>
-            <SwiperSlide>Slide 5</SwiperSlide>
-            <SwiperSlide>Slide 6</SwiperSlide>
-            <SwiperSlide>Slide 7</SwiperSlide>
-            <SwiperSlide>Slide 8</SwiperSlide>
-            <SwiperSlide>Slide 9</SwiperSlide>
+          {
+         listOfImages.map((image, index) => 
+            <SwiperSlide>
+              <img key={index} src={image} alt="info"></img>
+            </SwiperSlide>
+          )
+        }
           </Swiper>
       </div>
     )

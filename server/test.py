@@ -1,8 +1,9 @@
 import os
 import cv2
 import subprocess
+import pathlib
 
-filename = 'server/ressource/super.mp4'
+filename = 'keyframeJS/server/ressource/super.mp4'
 
 
 def get_frame_types(video_fn):
@@ -16,12 +17,16 @@ def save_i_keyframes(video_fn):
     frame_types = get_frame_types(video_fn)
     i_frames = [x[0] for x in frame_types if x[1] == 'I']
     if i_frames:
-        basename = os.path.splitext(os.path.basename(video_fn))[0]
+        #basename = os.path.splitext(os.path.basename(video_fn))[0]
+        pathway="keyframeJS/server/ressource/output"
+        path = pathlib.Path(pathway)
+        path.mkdir(parents=True, exist_ok=True)
         cap = cv2.VideoCapture(video_fn)
         for frame_no in i_frames:
             cap.set(cv2.CAP_PROP_POS_FRAMES, frame_no)
             ret, frame = cap.read()
-            outname = basename+'_i_frame_'+str(frame_no)+'.jpg'
+            #outname = basename+'_iframe'+str(frame_no)+'.jpg'
+            outname = pathway+'/_iframe'+str(frame_no)+'.jpg'
             cv2.imwrite(outname, frame)
             print('Saved: '+outname)
         cap.release()

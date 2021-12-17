@@ -1,11 +1,10 @@
 import cv2
-
 cap = cv2.VideoCapture("server/ressource/super.mp4")
 
 i=0
 while(cap.isOpened()):
 
-  ret, frame = cap.read()
+  ret, frame = cap.read() 
   if ret == True:
 
     
